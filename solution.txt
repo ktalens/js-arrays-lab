@@ -15,7 +15,6 @@ Exercise 2:
 */
 
 // Complete Exercise 2 below...
-
 foods.push('pizza','cheeseburger')
 
 console.log('Exercise 2 Result:\n',  foods);
@@ -26,8 +25,8 @@ Exercise 3:
 */
 
 // Complete Exercise 3 below...
-
 foods.unshift('taco')
+
 
 console.log('Exercise 3 Result:\n', foods);
 
@@ -37,8 +36,7 @@ Exercise 4:
 */
 
 // Complete Exercise 4 below...
-
-const favFood = foods[1]
+var favFood =foods.indexOf('pizza')
 
 console.log('Exercise 4 Result:\n', favFood);
 
@@ -48,8 +46,8 @@ Exercise 5:
 */
 
 // Complete Exercise 5 below...
+foods.splice(2,0,'tofu')
 
-foods.splice(foods.indexOf('cheeseburger'),0,'tofu')
 
 console.log('Exercise 5 Result:\n', foods);
 
@@ -59,8 +57,8 @@ Exercise 6:
 */
 
 // Complete Exercise 6 below...
+foods.splice(1,1,'sushi','cupcake')
 
-foods.splice(foods.indexOf('pizza'),1,'sushi','cupcake')
 
 console.log('Exercise 6 Result:\n', foods);
 
@@ -71,10 +69,8 @@ Exercise 7:
 */
 
 // Complete Exercise 7 below...
+yummy=foods.slice(1,3)
 
-let yummy = [];
-
-yummy = foods.slice(foods.indexOf('sushi'),3);
 
 console.log('Exercise 7 Result:\n', yummy);
 
@@ -85,7 +81,7 @@ Exercise 8:
 
 // Complete Exercise 8 below...
 
-let soyIdx = foods.indexOf('tofu');
+var soyIdx= foods.indexOf('tofu')
 
 console.log('Exercise 8 Result:\n', soyIdx);
 
@@ -97,8 +93,8 @@ Exercise 9:
 
 // Complete Exercise 9 below...
 
-const allFoods = foods[0] + ' -> ' + foods[1] + ' -> ' + foods[2] + ' -> ' + foods[3] + ' -> ' + foods[4]
 
+var allFoods = foods.join(' -> ')
 console.log('Exercise 9 Result:\n', allFoods);
 
 /*
@@ -108,7 +104,8 @@ Exercise 10:
 
 // Complete Exercise 10 below...
 
-let hasSoup = foods.includes('soup')
+var hasSoup = 
+foods.indexOf('soup')===-1
 
 console.log('Exercise 10 Result:\n', hasSoup);
 
@@ -121,16 +118,15 @@ Exercise 11:
 const nums = [100, 5, 23, 15, 21, 72, 9, 45, 66, 7, 81, 90];
 
 // Complete Exercise 11 below...
-
-let odds = [];
-
-nums.forEach(findOdds);
-
-function findOdds(num) {
-   if (num % 2 === 1) {
-       odds.push(num);
- }
+odds = []
+for (let i=0; i<nums.length ; i++)
+{
+  if (nums[i]%2===1) {
+    odds.push(nums[i])
+  }
 }
+
+
 console.log('Exercise 11 Result:\n', odds);
 
 /*
@@ -142,22 +138,23 @@ Exercise 12:
 */
 
 // Complete Exercise 12 below...
+var fizz = []
+var buzz = []
+var fizzbuzz = []
 
-let fizz = [];
-let buzz = [];
-let fizzbuzz = [];
-
-nums.forEach(fuzzbizz);
-
-function fuzzbizz(num){
-  if (num % 3 === 0 && num % 5 === 0) {
-    fizzbuzz.push(num);
-  } else if (num % 3 === 0) {
-    fizz.push(num);
-  } else if (num % 5 === 0) {
-    buzz.push(num);
+for (let i=0; i<nums.length ; i++)
+{
+  if ((nums[i]/3)%2===0 && ((nums[i]/5)%2===0)) {
+    fizzbuzz.push(nums[i])
+  }
+  else if ((nums[i]/3)%2===0) {
+    fizz.push(nums[i])
+  }
+  else if ((nums[i]/5)%2===0) {
+    buzz.push(nums[i])
   }
 }
+
 
 console.log('Exercise 12 Results:');
 console.log('  fizz:', fizz);
@@ -179,9 +176,15 @@ const numArrays = [
 
 // Complete Exercise 13 below...
 
-const lastVal = numArrays.length - 1;
+// var numList=//console.log(numArrays.indexOf)
+var numList = []
+ for (let i=0; i<numArrays.length ; i++)
+ {
+   if (numArrays.length-1 === numArrays.indexOf(numArrays[i])) {
+     numList.push(numArrays[i])
+   }
+ }
 
-const numList = numArrays[lastVal];
 
 console.log('Exercise 13 Result:\n', numList);
 
@@ -192,7 +195,14 @@ Exercise 14:
 
 // Complete Exercise 14 below...
 
-const num =numArrays[2][1];
+var x=[]
+for (let i=0; i<numArrays.length; i++)
+{x=numArrays[i]
+for (let i=0; i<x.length; i++)
+  {if (x[i] === 66) 
+  {var num=x[i]}
+  }
+}
 
 console.log('Exercise 14 Result:\n', num);
 
@@ -204,12 +214,16 @@ Exercise 15:
 
 // Complete Exercise 15 below...
 
-let total = 0;
+var total=0
+for (let i=0; i<numArrays.length; i++) //goes through each iteration of the original array
+  {
+    x=numArrays[i]
+    for (let i=0; i<x.length; i++) //goes through each iteration of each nested array
+    {
+      var y=total //old total before adding new iteration value
+      total=x[i]+y //new total replacing y-var
+    }
 
-numArrays.flat(3).forEach(bigSum);
-
-function bigSum(n) {
-  total += n;
-}
+  }
 
 console.log('Exercise 15 Result:\n', total);
